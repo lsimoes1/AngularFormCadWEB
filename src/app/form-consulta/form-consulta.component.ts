@@ -1,4 +1,5 @@
 import { Component, OnInit, NgModule } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 
 @Component({
@@ -7,11 +8,17 @@ import { Component, OnInit, NgModule } from '@angular/core';
   styleUrls: ['./form-consulta.component.css']
 })
 
-export class FormConsultaComponent implements OnInit {
+export class FormConsultaComponent {
 
-  constructor() { }
+  pessoa: object[] = [];
+  filter: string = '';
 
-  ngOnInit() {
+  configUrl = 'https://localhost:5001/api/consulta/' + this.filter;
+
+  constructor(private http: HttpClient) { }
+
+  consulta() {
+    this.http.get<object[]>(this.configUrl)
+    .subscribe(usuario => this.pessoa = usuario );
   }
-
 }

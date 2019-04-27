@@ -1,0 +1,9 @@
+{
+  "usuario": [{
+    "nome": "Teste",
+    "sobrenome": "Post",
+    "cidade": "AAA",
+    "estado": "BBB",
+    "cep": "123123"
+  }]
+}

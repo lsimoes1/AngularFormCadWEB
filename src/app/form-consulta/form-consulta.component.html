@@ -2,14 +2,38 @@
   <div class="border border-top-0 shadow p-3 mb-5 bg-white rounded pdMargin">
     <form>
       <div class="form-group row">
-        <div class="col-9">
-          <input type="text" class="form-control btn-lb-cpf" id="formGroupExampleInput" placeholder="Digite o CPF">
+        <div class="col-8">
+          <input (keyup)="filter = $event.target.value" type="text" class="form-control btn-lb-cpf" id="formGroupExampleInput" placeholder="Digite o Nome">
         </div>
-        <div class="col 1">
-            <!-- <button type="button" class="btn btn-outline-dark">Consultar</button> -->
-            <fa class="icon-search"  name="search"></fa>
+        <div class="col 3">
+            <button (click)="consulta()" type="button" class="btn btn-outline-dark">Consultar</button>
+            <!-- <fa class="icon-search"  name="search"></fa> -->
         </div>
       </div>
     </form>
   </div>
+
+  <table class="table table-dark">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Nome</th>
+        <th scope="col">Sobrenome</th>
+        <th scope="col">Cidade</th>
+        <th scope="col">Estado</th>
+        <th scope="col">CEP</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of pessoa">
+        <th scope="row"></th>
+        <td>{{ item.nome }}</td>
+        <td>{{ item.sobrenome }}</td>
+        <td>{{ item.cidade }}</td>
+        <td>{{ item.estado }}</td>
+        <td>{{ item.cep }}</td>
+      </tr>
+    </tbody>
+  </table>
+
 </div>
