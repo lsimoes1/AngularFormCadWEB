@@ -10,12 +10,11 @@ import { HttpClient } from '@angular/common/http';
 
 export class FormConsultaComponent {
 
-  pessoa: object[] = [];
-  filter: string = '';
-
-  configUrl = 'https://localhost:5001/api/consulta/' + this.filter;
-
   constructor(private http: HttpClient) { }
+
+  pessoa: object[] = [];
+
+  configUrl = 'https://localhost:5001/api/consulta/';
 
   consulta() {
     this.http.get<object[]>(this.configUrl)

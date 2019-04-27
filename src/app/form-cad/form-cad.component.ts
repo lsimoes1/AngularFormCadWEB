@@ -10,17 +10,17 @@ import { getLocaleDayPeriods } from '@angular/common';
 
 export class FormCadComponent{
 
+  constructor(private http: HttpClient) { }
+
   nome: string = '';
   sobrenome: string = '';
   cidade: string = '';
-  estado: string = '';;
+  estado: string = '';
   cep: string = '';
-
-  constructor(private http: HttpClient) { }
 
   cadastrar(){
 
-    const url = 'https://localhost:5001/api/cadastrar/';
+    const url = 'https://localhost:5001/api/Cadastrar/';
 
     this.http.post(url,
         {
